@@ -110,6 +110,9 @@ NavigationCollector.NavigationQualifier = {
 NavigationCollector.Request;
 ///////////////////////////////////////////////////////////////////////////////
 NavigationCollector.prototype = {
+  metaData: {
+    stackoverflow: 0
+  },
   /**
    * Returns a somewhat unique ID for a given WebNavigation request.
    *
@@ -331,7 +334,8 @@ NavigationCollector.prototype = {
 			console.log('url ' + data.url);
 			if (data.url.includes('stackoverflow')){
 				/* save data here */
-				console.log('GOT OVERFLOW');
+        this.metaData.stackoverflow += 1;
+        console.log('GOT OVERFLOW: ', this.metaData.stackoverflow);
 			}
 
       delete this.pending_[id];
