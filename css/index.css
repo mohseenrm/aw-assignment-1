@@ -156,4 +156,10 @@ body {
       color: #333333;
       text-decoration: none; }
 
+.main-wrapper {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 /*# sourceMappingURL=index.css.map */
