@@ -1,0 +1,11 @@
+{
+  "name": "aw-assignment-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:mohseenrm/aw-assignment-1.git",
+  "author": "mohseenrm <mohseenmukaddam6@gmail.com>",
+  "scripts": {
+    "compile": "sass --watch src/scss:css"
+  },
+  "license": "MIT"
+}
