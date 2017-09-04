@@ -26,9 +26,40 @@ chrome.runtime.onStartup.addListener(function() {
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
   	chrome.pageAction.show(sender.tab.id);
+    
+    chrome.tabs.sendMessage(
+      sender.tab.id,
+      {
+        greeting: "hello"
+      },
+      function(response) {
+        if (response) { console.log('Already there'); }
+        else { console.log('Not there, inject contentscript'); }
+      }
+    );
     sendResponse();
   });
 
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.update({url:chrome.extension.getURL("index.html")});
+});
+
+chrome.tabs.query(
+  {
+    active: true, 
+    currentWindow: true
+  }, 
+  function(tabs) {
+    chrome.tabs.sendMessage(
+      tabs[0].id, 
+      {
+        greeting: "hello"
+      }, function(response) {
+        if (response) {
+          console.log("Already there");
+        }
+        else {
+          console.log("Not there, inject contentscript");
+        }
+    });
 });

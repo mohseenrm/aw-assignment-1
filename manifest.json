@@ -4,6 +4,7 @@
   "manifest_version": 2,
   "description": "This extension was created with the awesome extensionizr.com",
   "homepage_url": "http://extensionizr.com",
+  "offline_enabled": true,
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -19,19 +20,19 @@
     "default_title": "browser action demo"
   },
   "permissions": [
+    "activeTab",
     "history",
     "tabs",
     "webNavigation",
     "storage",
-    "https://stackoverflow.com/*"
+    "*://*.stackoverflow.com/*"
   ],
   "content_scripts": [
     {
       "matches": [
-        "https://stackoverflow.com/*"
+        "*://*.stackoverflow.com/*"
       ],
       "js": [
-        "jquery.js",
         "src/inject/inject.js"
       ],
       "run_at": "document_end"
