@@ -1,8 +1,3 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
-
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
 var nav = new NavigationCollector();
 var eventList = ['onBeforeNavigate', 'onCreatedNavigationTarget',
     'onCommitted', 'onCompleted', 'onDOMContentLoaded',
@@ -41,7 +36,9 @@ chrome.extension.onMessage.addListener(
   });
 
 chrome.browserAction.onClicked.addListener(function(tab) {
-  chrome.tabs.update({url:chrome.extension.getURL("index.html")});
+  chrome.tabs.update({
+    url: chrome.extension.getURL("index.html")
+  });
 });
 
 chrome.tabs.query(
