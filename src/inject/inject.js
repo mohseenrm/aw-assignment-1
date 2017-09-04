@@ -1,15 +1,6 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
-
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
-		// ----------------------------------------------------------
-		console.log("JQ: ", $);
-	}
-	}, 10);
+chrome.extension.sendMessage({}, function( response ) {
+	var $loginButton = $( '#login-form--button' );
+	var $registerButton = $( '#signup-form--button' );
 
 	// Toggle Function
 	$('.toggle').click(function(){
@@ -23,4 +14,19 @@ chrome.extension.sendMessage({}, function(response) {
 			opacity: "toggle"
 		}, "slow");
 	});
+
+	$.ajax({
+		type: 'POST',
+		url: 'http://localhost:9001/auth',
+		data: {
+			sample: ' data'
+		},
+		success: function(result){
+			console.log('result: ', result)
+		},
+		error: function(request, error){
+			console.log('Error: ', error);
+		}
+	})
+
 });
