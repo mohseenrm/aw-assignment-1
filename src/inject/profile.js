@@ -15,15 +15,25 @@ chrome.storage.local.get('username', function(user) {
 
 console.log('runs till here');
 
+var convertToReadableTime = function(epoc){
+	if (epoc){
+		var time = new Date(epoc);
+		return time;
+	}
+	return '27 August, 2017';
+}
+
 var render = function(){
 	renderLastLogin();
 }
 
 var renderLastLogin = function(){
 	if (session.activity && session.activity.length !== 0){
-		$activity.html('Last Login at : ' + session.activity[
-			session.activity.length - 1
-		].timeStamp);
+		$activity.html('Last Login at : ' + convertToReadableTime(
+			session.activity[
+				session.activity.length - 1
+			].timeStamp
+		));
 	}
 }
 
