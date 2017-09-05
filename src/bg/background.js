@@ -1,4 +1,4 @@
-var nav = new NavigationCollector();
+/* var nav = new NavigationCollector();
 var eventList = ['onBeforeNavigate', 'onCreatedNavigationTarget',
     'onCommitted', 'onCompleted', 'onDOMContentLoaded',
     'onErrorOccurred', 'onReferenceFragmentUpdated', 'onTabReplaced',
@@ -15,7 +15,7 @@ eventList.forEach(function(e) {
 // session.
 chrome.runtime.onStartup.addListener(function() {
   nav.resetDataStorage();
-});
+}); */
 
 //example of using a message handler from the inject scripts
 chrome.extension.onMessage.addListener(
@@ -53,7 +53,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
   });
 });
 
-chrome.tabs.query(
+/* chrome.tabs.query(
   {
     active: true, 
     currentWindow: true
@@ -71,4 +71,4 @@ chrome.tabs.query(
           console.log("Not there, inject contentscript");
         }
     });
-});
+}); */
