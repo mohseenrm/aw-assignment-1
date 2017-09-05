@@ -55,6 +55,11 @@ table {
   font-size: 2.5rem;
   font-weight: 300; }
 
+.content {
+  font-family: "Merriweather", serif;
+  font-size: 2.2rem;
+  font-weight: 200; }
+
 .fadeInUpAgain {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp; }
@@ -62,7 +67,8 @@ table {
 body {
   /* base content styling */
   font-family: "Merriweather", serif;
-  font-size: 1.1rem; }
+  font-size: 1.1rem;
+  background: #ecf0f1; }
 
 /* Form Module */
 .form-module {

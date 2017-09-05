@@ -4,7 +4,7 @@ $content-font: 'Merriweather', serif !global;
 
 /* colors */
 $dark-black: #15120B !global;
-$off-white: #f5f5f5 !global;
+$off-white: #ecf0f1 !global;
 $side-nav-color: #051B2B !global;
 
 /* classes */
@@ -12,6 +12,12 @@ $side-nav-color: #051B2B !global;
 	font-family: $title-font;
 	font-size: 2.5rem;
 	font-weight: 300;
+}
+
+.content{
+	font-family: $content-font;
+	font-size: 2.2rem;
+	font-weight: 200;	
 }
 
 .fadeInUpAgain {
