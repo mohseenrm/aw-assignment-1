@@ -9,6 +9,11 @@ chrome.runtime.onMessage.addListener(
 		}
 );
 
+var $username = $('#username');
+
 chrome.storage.local.get('username', function(user) {
+	/* Retreive username */
 	console.log('Got user: ', user);
+	$username.html(user.username);
+	/* Retrieve history */
 });
