@@ -64,6 +64,9 @@ table {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp; }
 
+.light {
+  font-weight: 100; }
+
 body {
   /* base content styling */
   font-family: "Merriweather", serif;

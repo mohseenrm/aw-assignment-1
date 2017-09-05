@@ -37,6 +37,12 @@ var renderLastLogin = function(){
 	}
 }
 
+var renderLoginActivity = function(){
+	if (session.activity && session.activity.length !== 0){
+		// render each activity
+	}
+}
+
 var retrieveHistory = function(){
 	$.ajax( {
 		type: 'POST',

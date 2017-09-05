@@ -64,6 +64,9 @@ table {
   -webkit-animation-name: fadeInUp;
   animation-name: fadeInUp; }
 
+.light {
+  font-weight: 100; }
+
 body {
   /* base content styling */
   font-family: "Merriweather", serif;
@@ -103,6 +106,18 @@ body {
       border: 4px solid #000; }
   .main-wrapper--body {
     display: flex;
-    flex-grow: 9; }
+    flex-grow: 9;
+    width: 100%; }
+    .main-wrapper--body--activity {
+      display: flex;
+      width: 100%;
+      background: #011825;
+      color: #ecf0f1;
+      margin-top: 3vh;
+      flex-direction: column;
+      align-items: center; }
+      .main-wrapper--body--activity--title {
+        width: auto;
+        height: auto; }
 
 /*# sourceMappingURL=profile.css.map */
