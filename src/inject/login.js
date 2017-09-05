@@ -30,7 +30,7 @@ $loginButton.click( function( e ) {
 	// send ajax request
 	$.ajax( {
 		type: 'POST',
-		url: 'http://localhost:9008/auth/login',
+		url: 'https://aw-1.herokuapp.com/auth/login',
 		data: JSON.stringify(payload),
 		contentType: 'application/json; charset=utf-8',
 		dataType: 'json',
@@ -62,7 +62,7 @@ $registerButton.click( function( e ) {
 	// send ajax request
 	$.ajax( {
 		type: 'POST',
-		url: 'http://localhost:9008/auth/create',
+		url: 'https://aw-1.herokuapp.com/auth/create',
 		data: JSON.stringify(payload),
 		contentType: 'application/json; charset=utf-8',
 		dataType: 'json',

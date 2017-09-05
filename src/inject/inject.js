@@ -27,15 +27,27 @@ document.body.addEventListener('click', function(e){
 		console.log('session: ', session);
 	}
 }, true);
-/* 
+
 var updateServer = function(){
 	// check if data exists
 	if (session.events.length !== 0) {
 		// send data to /update/history
-
+		$.ajax( {
+			type: 'POST',
+			url: 'https://aw-1.herokuapp.com/update/history',
+			data: JSON.stringify(session),
+			contentType: 'application/json; charset=utf-8',
+			dataType: 'json',
+			success: function( result ){
+				console.log( 'update history [client] result: ', result );
+			},
+			error: function( request, error ){
+				console.log( 'login Error: ', error );
+			}
+		} );
 		//resetting session
 		session.events = [];
 	}
 }
 
-setInterval(updateServer, 50000); */
+setInterval(updateServer, 4500);
