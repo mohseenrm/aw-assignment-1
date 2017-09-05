@@ -20,6 +20,18 @@ chrome.runtime.onStartup.addListener(function() {
 //example of using a message handler from the inject scripts
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
+    console.log('Request: ', request);
+    console.log('Sender: ', sender);
+
+    if ( request.auth ){
+      chrome.storage.local.set({
+        'username': request.username
+      });
+
+      chrome.tabs.update({
+        url: chrome.extension.getURL('profile.html')
+      });
+    }
   	chrome.pageAction.show(sender.tab.id);
     
     chrome.tabs.sendMessage(

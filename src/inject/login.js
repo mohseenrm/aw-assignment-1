@@ -5,7 +5,7 @@ var $loginUsername = $( '#login-form--username' );
 var $registerButton = $( '#signup-form--button' );
 var $registerUsername = $( '#signup-form--username' );
 var $registerPassword = $( '#signup-form--password' );
-
+console.log('chrome: ', chrome);
 // Toggle Function
 $( '.toggle' ).click( function() {
 	// Switches the Icon
@@ -35,7 +35,15 @@ $loginButton.click( function( e ) {
 		contentType: 'application/json; charset=utf-8',
 		dataType: 'json',
 		success: function( result ){
-			console.log( 'login result: ', result )
+			console.log( 'login result: ', result );
+			if( result.auth ){
+				chrome.runtime.sendMessage(
+					{
+						auth: true,
+						username: result.username
+					}
+				);
+			}
 		},
 		error: function( request, error ){
 			console.log( 'login Error: ', error );
