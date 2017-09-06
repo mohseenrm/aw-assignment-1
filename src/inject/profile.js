@@ -2,6 +2,7 @@ console.log('loaded profile js: ', chrome);
 
 var $activity = $('#activity');
 var $hook = $('#activity-hook');
+var $logout = $('#logout');
 var $username = $('#username');
 
 var session = {};
@@ -21,6 +22,7 @@ var convertToReadableTime = function(epoc){
 		var time = new Date(epoc);
 		return time;
 	}
+	// fallback
 	return '27 August, 2017';
 }
 
@@ -93,3 +95,20 @@ var retrieveHistory = function(){
 }
 
 setTimeout(retrieveHistory, 100);
+
+/* Hooking up logout action */
+$logout.click(function(e){
+	e.preventDefault();
+
+	/* // send data to server and reset session
+	var logoutAction = {
+		type: 'logout',
+		timeStamp: (new Date).getTime()
+	}; */
+
+	chrome.runtime.sendMessage(
+		{
+			logout: true
+		}
+	);
+});

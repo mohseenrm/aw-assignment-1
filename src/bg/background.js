@@ -12,7 +12,12 @@ chrome.extension.onMessage.addListener(
       chrome.tabs.update({
         url: chrome.extension.getURL('profile.html')
       });
+    } else if ( request.logout ){
+      chrome.tabs.update({
+        url: chrome.extension.getURL("index.html")
+      });
     }
+
   	chrome.pageAction.show(sender.tab.id);
     
     chrome.tabs.sendMessage(
