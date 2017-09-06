@@ -67,6 +67,15 @@ table {
 .light {
   font-weight: 100; }
 
+.icon {
+  font-size: 1.6rem;
+  margin: 1%;
+  color: #979595;
+  transition: all 0.4s ease-in-out; }
+  .icon:hover {
+    color: #ecf0f1;
+    transition: all 0.4s ease-in-out; }
+
 body {
   /* base content styling */
   font-family: "Merriweather", serif;
@@ -94,7 +103,6 @@ body {
       flex-grow: 1;
       align-items: center;
       justify-content: center;
-      height: 23vh;
       font-weight: 100;
       font-size: 7rem; }
     .main-wrapper--title-last-login {
@@ -154,5 +162,22 @@ body {
         color: #0D1130;
         font-weight: 200;
         transition: all 0.4s ease-in-out; }
+
+.modal {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: #0D1130;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999; }
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 2%;
+  font-size: 2.5rem; }
 
 /*# sourceMappingURL=profile.css.map */

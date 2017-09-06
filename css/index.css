@@ -67,6 +67,15 @@ table {
 .light {
   font-weight: 100; }
 
+.icon {
+  font-size: 1.6rem;
+  margin: 1%;
+  color: #979595;
+  transition: all 0.4s ease-in-out; }
+  .icon:hover {
+    color: #ecf0f1;
+    transition: all 0.4s ease-in-out; }
+
 body {
   /* base content styling */
   font-family: "Merriweather", serif;

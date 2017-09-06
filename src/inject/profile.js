@@ -1,8 +1,11 @@
 console.log('loaded profile js: ', chrome);
 
 var $activity = $('#activity');
+var $close = $('#close');
 var $hook = $('#activity-hook');
+var $info = $('#info');
 var $logout = $('#logout');
+var $modal = $('.modal');
 var $username = $('#username');
 
 var session = {};
@@ -15,7 +18,15 @@ chrome.storage.local.get('username', function(user) {
 	/* Retrieve history */
 });
 
-console.log('runs till here');
+$modal.fadeOut();
+
+$info.click(function(){
+	$modal.fadeIn();
+});
+
+$close.click(function(){
+	$modal.fadeOut();
+});
 
 var convertToReadableTime = function(epoc){
 	if (epoc){

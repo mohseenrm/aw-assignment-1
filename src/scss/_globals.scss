@@ -32,3 +32,14 @@ $side-nav-color: #051B2B !global;
 .light{
 	font-weight: 100;
 }
+
+.icon{
+	font-size: 1.6rem;
+	margin: 1%;
+	color: #979595;
+	transition: all 0.4s ease-in-out;
+	&:hover{
+		color: $off-white;
+		transition: all 0.4s ease-in-out;
+	}
+}
