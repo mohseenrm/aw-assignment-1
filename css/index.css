@@ -76,6 +76,9 @@ table {
     color: #ecf0f1;
     transition: all 0.4s ease-in-out; }
 
+.white {
+  color: #ecf0f1; }
+
 body {
   /* base content styling */
   font-family: "Merriweather", serif;

@@ -76,6 +76,9 @@ table {
     color: #ecf0f1;
     transition: all 0.4s ease-in-out; }
 
+.white {
+  color: #ecf0f1; }
+
 body {
   /* base content styling */
   font-family: "Merriweather", serif;
@@ -165,16 +168,27 @@ body {
 
 .modal {
   display: flex;
+  flex-direction: column;
+  padding: 3.5%;
   min-height: 100vh;
   width: 100%;
+  max-width: 100vw;
   background: #0D1130;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999; }
+  z-index: 999;
+  overflow-x: hidden; }
+  .modal--event {
+    margin: 2% 0 2% 0; }
+  .modal--text {
+    font-size: 1.6rem;
+    padding-right: 8%;
+    line-height: 4.4vh;
+    font-style: italic; }
 
 #close {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   margin: 2%;
