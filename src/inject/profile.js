@@ -100,12 +100,6 @@ setTimeout(retrieveHistory, 100);
 $logout.click(function(e){
 	e.preventDefault();
 
-	/* // send data to server and reset session
-	var logoutAction = {
-		type: 'logout',
-		timeStamp: (new Date).getTime()
-	}; */
-
 	chrome.runtime.sendMessage(
 		{
 			logout: true
