@@ -74,7 +74,7 @@ body {
   background: #ecf0f1; }
 
 .main-wrapper {
-  height: 100vh;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,5 +137,21 @@ body {
         max-width: 100vw; }
         .main-wrapper--body--activity--item:last-child {
           border-bottom: 4px solid #0D1130; }
+    .main-wrapper--body--logout {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 9vh;
+      background: #0D1130;
+      color: #ecf0f1;
+      border: 4px solid #0D1130;
+      margin-top: 2%;
+      transition: all 0.4s ease-in-out; }
+      .main-wrapper--body--logout:hover {
+        background: #ecf0f1;
+        color: #0D1130;
+        font-weight: 200;
+        transition: all 0.4s ease-in-out; }
 
 /*# sourceMappingURL=profile.css.map */

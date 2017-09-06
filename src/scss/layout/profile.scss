@@ -1,5 +1,5 @@
 .main-wrapper{
-	height: 100vh;
+	height: auto;
 	
 	display: flex;
 	flex-direction: column;
@@ -94,6 +94,32 @@
 				&:last-child{
 					border-bottom: 4px solid $new-black;
 				}
+			}
+		}
+
+		&--logout{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			width: 100%;
+			height: 9vh;
+
+			background: $new-black;
+			color: $off-white;
+
+			border: 4px solid $new-black;
+
+			margin-top: 2%;
+
+			transition: all 0.4s ease-in-out;
+
+			&:hover{
+				background: $off-white;
+				color: $new-black;
+				font-weight: 200;
+
+				transition: all 0.4s ease-in-out;
 			}
 		}
 	}
