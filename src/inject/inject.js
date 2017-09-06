@@ -17,12 +17,19 @@ chrome.storage.local.get('username', function(user) {
 document.body.addEventListener('click', function(e){
 	console.log('Content Script caught event: ', e);
 
-	if (e.srcElement.baseURI.includes('stackoverflow')) {
+	if (
+		e.srcElement.baseURI.includes(
+			'stackoverflow'
+		) && e.srcElement.baseURI.includes(
+			'java'
+		)
+	) {
 		session.events.push({
 			className: e.srcElement.className || '',
 			id: e.srcElement.id || '',
 			timeStamp: (new Date).getTime(),
 			type: e.type,
+			url: e.srcElement.baseURI
 		});
 		console.log('session: ', session);
 	}
@@ -45,7 +52,7 @@ var updateServer = function(){
 				console.log( 'login Error: ', error );
 			}
 		} );
-		//resetting session
+		// resetting session
 		session.events = [];
 	}
 }
