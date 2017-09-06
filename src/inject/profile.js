@@ -1,6 +1,7 @@
 console.log('loaded profile js: ', chrome);
 
 var $activity = $('#activity');
+var $hook = $('#activity-hook');
 var $username = $('#username');
 
 var session = {};
@@ -25,6 +26,7 @@ var convertToReadableTime = function(epoc){
 
 var render = function(){
 	renderLastLogin();
+	renderLoginActivity();
 }
 
 var renderLastLogin = function(){
@@ -37,10 +39,34 @@ var renderLastLogin = function(){
 	}
 }
 
+var createActivityElement = function(activity){
+	var $element = $(
+		'<div>',
+		{
+			'class': 'main-wrapper--body--activity--item content light'
+		}
+	);
+	var time = convertToReadableTime(activity.timeStamp);
+	$element.html(time);
+	$hook.append($element);
+}
+
 var renderLoginActivity = function(){
 	if (session.activity && session.activity.length !== 0){
 		// render each activity
+		session.activity.map(createActivityElement);
 	}
+}
+
+var renderFail = function(){
+	var $fail = $(
+		'<div>',
+		{
+			'class': 'main-wrapper--body--activity--item content light'
+		}
+	);
+	$fail.html('Error loading history, please refresh');
+	$hook.append($fail);
 }
 
 var retrieveHistory = function(){
@@ -52,9 +78,13 @@ var retrieveHistory = function(){
 		dataType: 'json',
 		success: function( result ){
 			console.log( 'get history [client] result: ', result );
-			session.activity = result.events[0].activity;
-			session.events = result.events[0].events;
-			render();
+			if (result.getHistory){
+				session.activity = result.events[0].activity;
+				session.events = result.events[0].events;
+				render();
+			} else {
+				renderFail();
+			}
 		},
 		error: function( request, error ){
 			console.log( 'get history Error: ', error );

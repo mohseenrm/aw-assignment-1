@@ -84,8 +84,8 @@ body {
     display: flex;
     width: 100%;
     flex-direction: column;
-    background: #000;
-    color: #fff;
+    background: #0D1130;
+    color: #ecf0f1;
     font-size: 8rem;
     text-align: center;
     border-radius: 5px; }
@@ -101,9 +101,9 @@ body {
       font-size: 1.5rem;
       width: auto;
       background: #ecf0f1;
-      color: #000;
+      color: #0D1130;
       padding: 1vw;
-      border: 4px solid #000; }
+      border: 4px solid #0D1130; }
   .main-wrapper--body {
     display: flex;
     width: 100%; }
@@ -111,7 +111,7 @@ body {
       display: flex;
       width: 100%;
       flex-wrap: wrap;
-      background: #011825;
+      background: #0D1130;
       color: #ecf0f1;
       margin-top: 3vh;
       /* flex-direction: column;
@@ -123,14 +123,19 @@ body {
         align-items: center;
         justify-content: center; }
       .main-wrapper--body--activity--item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         width: 100%;
         height: 4vh;
         background: #ecf0f1;
-        color: #000;
+        color: #0D1130;
+        font-size: 1.4rem;
         padding: 1.4%;
-        border: 4px solid #011825;
+        border: 4px solid #0D1130;
+        border-bottom: 0;
         max-width: 100vw; }
-        .main-wrapper--body--activity--item:nth-child(2) {
-          border-bottom: 0; }
+        .main-wrapper--body--activity--item:last-child {
+          border-bottom: 4px solid #0D1130; }
 
 /*# sourceMappingURL=profile.css.map */

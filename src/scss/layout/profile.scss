@@ -14,8 +14,8 @@
 		width: 100%;
 		flex-direction: column;
 
-		background: #000;
-		color: #fff;
+		background: $new-black;
+		color: $off-white;
 
 		font-size: 8rem;
 		text-align: center;
@@ -38,9 +38,9 @@
 			font-size: 1.5rem;
 			width: auto;
 			background: $off-white;
-			color: #000;
+			color: $new-black;
 			padding: 1vw;
-			border: 4px solid #000;
+			border: 4px solid $new-black;
 		}
 	}
 
@@ -54,7 +54,7 @@
 			width: 100%;
 			flex-wrap: wrap;
 
-			background: $dull-blue;
+			background: $new-black;
 			color: $off-white;
 
 			margin-top: 3vh;
@@ -72,19 +72,27 @@
 			}
 
 			&--item{
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
 				width: 100%;
 				height: 4vh;
 				background: $off-white;
-				color: #000;
-				
+				color: $new-black;
+
+				font-size: 1.4rem;
 				padding: 1.4%;
-				border: 4px solid $dull-blue;
+
+				border: 4px solid $new-black;
+				border-bottom: 0;
+
 				max-width: 100vw;
 
 				// margin-top: 0.5vh;
 				// margin-top: 0.3vh;
-				&:nth-child(2){
-					border-bottom: 0;
+				&:last-child{
+					border-bottom: 4px solid $new-black;
 				}
 			}
 		}

@@ -1,35 +1,24 @@
 /*
-Error: Undefined variable: "$off-white".
-        on line 40 of src/scss/layout/profile.scss
+Error: Undefined variable: "$new-black".
+        on line 17 of src/scss/layout/profile.scss
 
-35: 		}
-36: 
-37: 		&-last-login{
-38: 			font-size: 1.5rem;
-39: 			width: auto;
-40: 			background: $off-white;
-41: 			color: #000;
-42: 			padding: 1vw;
-43: 			border: 4px solid #000;
-44: 		}
-45: 	}
+12: 	&--title{
+13: 		display: flex;
+14: 		width: 100%;
+15: 		flex-direction: column;
+16: 
+17: 		background: $new-black;
+18: 		color: $off-white;
+19: 
+20: 		font-size: 8rem;
+21: 		text-align: center;
+22: 
 
 Backtrace:
-src/scss/layout/profile.scss:40
+src/scss/layout/profile.scss:17
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/script/tree/node.rb:58:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:397:in `visit_prop'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block (2 levels) in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:433:in `block in visit_rule'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:431:in `visit_rule'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
@@ -90,4 +79,4 @@ src/scss/layout/profile.scss:40
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$off-white\".\A         on line 40 of src/scss/layout/profile.scss\A \A 35: 		}\A 36: \A 37: 		&-last-login{\A 38: 			font-size: 1.5rem;\A 39: 			width: auto;\A 40: 			background: $off-white;\A 41: 			color: #000;\A 42: 			padding: 1vw;\A 43: 			border: 4px solid #000;\A 44: 		}\A 45: 	}"; }
+  content: "Error: Undefined variable: \"$new-black\".\A         on line 17 of src/scss/layout/profile.scss\A \A 12: 	&--title{\A 13: 		display: flex;\A 14: 		width: 100%;\A 15: 		flex-direction: column;\A 16: \A 17: 		background: $new-black;\A 18: 		color: $off-white;\A 19: \A 20: 		font-size: 8rem;\A 21: 		text-align: center;\A 22: "; }
