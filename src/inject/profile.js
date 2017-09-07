@@ -3,6 +3,9 @@ console.log('loaded profile js: ', chrome);
 var $activity = $('#activity');
 var $close = $('#close');
 var $hook = $('#activity-hook');
+var $tabHook = $('#tab-hook');
+var $pageHook = $('#page-hook');
+var $questionHook = $('#question-hook');
 var $info = $('#info');
 var $logout = $('#logout');
 var $modal = $('.modal');
@@ -44,12 +47,7 @@ var convertToReadableTime = function(epoc){
 	// fallback
 	return '27 August, 2017';
 }
-
-var render = function(){
-	renderLastLogin();
-	renderLoginActivity();
-}
-
+/* Render Last Login */
 var renderLastLogin = function(){
 	if (session.activity && session.activity.length !== 0){
 		$activity.html('Last Login at : ' + convertToReadableTime(
@@ -59,7 +57,7 @@ var renderLastLogin = function(){
 		));
 	}
 }
-
+/* Render Activity Data */
 var createActivityElement = function(activity){
 	var $element = $(
 		'<div>',
@@ -78,7 +76,61 @@ var renderLoginActivity = function(){
 		session.activity.map(createActivityElement);
 	}
 }
-
+/* Render Bounties Data */
+var createTabElement = function(activity){
+	var $element = $(
+		'<div>',
+		{
+			'class': 'main-wrapper--body--activity--item content light'
+		}
+	);
+	var time = convertToReadableTime(activity.timeStamp);
+	$element.html(time);
+	$tabHook.append($element);
+}
+var renderTabActivity = function(){
+	if (session.render.bounties && session.render.bounties !== 0){
+		// render each activity
+		session.render.bounties.map(createTabElement);
+	}
+}
+/* Render Questions Data */
+var createQuestionElement = function(activity){
+	var $element = $(
+		'<div>',
+		{
+			'class': 'main-wrapper--body--activity--item content light'
+		}
+	);
+	var time = convertToReadableTime(activity.timeStamp);
+	$element.html(time);
+	$questionHook.append($element);
+}
+var renderQuestionActivity = function(){
+	if (session.render.questions && session.render.questions !== 0){
+		// render each activity
+		session.render.questions.map(createQuestionElement);
+	}
+}
+/* Render Page Data */
+var createPageElement = function(activity){
+	var $element = $(
+		'<div>',
+		{
+			'class': 'main-wrapper--body--activity--item content light'
+		}
+	);
+	var time = convertToReadableTime(activity.timeStamp);
+	$element.html(time);
+	$pageHook.append($element);
+}
+var renderPageActivity = function(){
+	if (session.render.pages && session.render.pages !== 0){
+		// render each activity
+		session.render.pages.map(createPageElement);
+	}
+}
+/* Render Failure */
 var renderFail = function(){
 	var $fail = $(
 		'<div>',
@@ -88,6 +140,15 @@ var renderFail = function(){
 	);
 	$fail.html('Error loading history, please refresh');
 	$hook.append($fail);
+}
+
+/* Main Render */
+var render = function(){
+	renderLastLogin();
+	renderLoginActivity();
+	renderTabActivity();
+	renderQuestionActivity();
+	renderPageActivity();
 }
 
 var isPage = function(event){
