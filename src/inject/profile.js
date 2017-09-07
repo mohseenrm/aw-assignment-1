@@ -8,7 +8,15 @@ var $logout = $('#logout');
 var $modal = $('.modal');
 var $username = $('#username');
 
-var session = {};
+var session = {
+	render: {}
+};
+
+var cssClasses = [
+  'question-hyperlink',
+	'page-numbers',
+	'bounties-tab'
+];
 
 chrome.storage.local.get('username', function(user) {
 	/* Retreive username */
@@ -82,6 +90,45 @@ var renderFail = function(){
 	$hook.append($fail);
 }
 
+var isPage = function(event){
+	return event.className.includes('page-numbers');
+}
+
+var filterPages = function(){
+	if(session.events){
+		var pages = session.events.filter(isPage);
+		session.render.pages = pages;
+	}
+}
+
+var isQuestion = function(event){
+	return event.className.includes('question-hyperlink');
+}
+
+var filterQuestions = function(){
+	if(session.events){
+		var questions = session.events.filter(isQuestion);
+		session.render.questions = questions;
+	}
+}
+
+var isBounty = function(event){
+	return event.className.includes('bounties-tab');
+}
+
+var filterBounties = function(){
+	if(session.events){
+		var bounties = session.events.filter(isBounty);
+		session.render.bounties = bounties;
+	}
+}
+
+var filter = function(){
+	filterBounties();
+	filterPages();
+	filterQuestions();
+}
+
 var retrieveHistory = function(){
 	$.ajax( {
 		type: 'POST',
@@ -94,7 +141,9 @@ var retrieveHistory = function(){
 			if (result.getHistory){
 				session.activity = result.events[0].activity;
 				session.events = result.events[0].events;
+				filter();
 				render();
+				console.log('Session: ', session);
 			} else {
 				renderFail();
 			}

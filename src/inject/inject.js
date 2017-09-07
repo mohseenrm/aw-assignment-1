@@ -57,4 +57,4 @@ var updateServer = function(){
 	}
 }
 
-setInterval(updateServer, 4500);
+setInterval(updateServer, 1500);
