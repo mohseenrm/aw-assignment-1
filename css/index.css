@@ -85,6 +85,9 @@ body {
   font-size: 1.1rem;
   background: #ecf0f1; }
 
+a {
+  text-decoration: none; }
+
 /* Form Module */
 .form-module {
   position: relative;

@@ -1,7 +1,7 @@
 .modal{
 	display: flex;
 	flex-direction: column;
-	padding: 3.5%;
+	padding: 3% 3% 0 3%;
 
 	min-height: 100vh;
 	width: 100%;
@@ -15,12 +15,17 @@
 
 	overflow-x: hidden;
 
+	&--title{
+		font-size: 2.1rem;
+	}
+
 	&--event{
-		margin: 2% 0 2% 0;
+		margin: 1.8% 0 1.8% 0;
+		font-size: 2.1rem;
 	}
 
 	&--text{
-		font-size: 1.6rem;
+		font-size: 1.4rem;
 		padding-right: 8%;
 		line-height: 4.4vh;
 		font-style: italic;

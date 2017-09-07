@@ -3,9 +3,10 @@ console.log('loaded profile js: ', chrome);
 var $activity = $('#activity');
 var $close = $('#close');
 var $hook = $('#activity-hook');
-var $tabHook = $('#tab-hook');
 var $pageHook = $('#page-hook');
 var $questionHook = $('#question-hook');
+var $tabHook = $('#tab-hook');
+var $tagHook = $('#tag-hook');
 var $info = $('#info');
 var $logout = $('#logout');
 var $modal = $('.modal');
@@ -18,7 +19,8 @@ var session = {
 var cssClasses = [
   'question-hyperlink',
 	'page-numbers',
-	'bounties-tab'
+	'bounties-tab',
+	'post-tag'
 ];
 
 chrome.storage.local.get('username', function(user) {
@@ -130,6 +132,24 @@ var renderPageActivity = function(){
 		session.render.pages.map(createPageElement);
 	}
 }
+/* Render Tag Data */
+var createTagElement = function(activity){
+	var $element = $(
+		'<div>',
+		{
+			'class': 'main-wrapper--body--activity--item content light'
+		}
+	);
+	var time = convertToReadableTime(activity.timeStamp);
+	$element.html(time);
+	$tagHook.append($element);
+}
+var renderTagActivity = function(){
+	if (session.render.tags && session.render.tags !== 0){
+		// render each activity
+		session.render.tags.map(createTagElement);
+	}
+}
 /* Render Failure */
 var renderFail = function(){
 	var $fail = $(
@@ -184,10 +204,22 @@ var filterBounties = function(){
 	}
 }
 
+var isTag = function(event){
+	return event.className.includes('post-tag');
+}
+
+var filterTags = function(){
+	if(session.events){
+		var tags = session.events.filter(isTag);
+		session.render.tags = tags;
+	}
+}
+
 var filter = function(){
 	filterBounties();
 	filterPages();
 	filterQuestions();
+	filterTags();
 }
 
 var retrieveHistory = function(){

@@ -21,6 +21,8 @@
 		<div class="modal--text content white">Tracking which type of questions does the user refer to. This will lead into insight about the problem domain and relevant issues</div>
 		<div class="modal--event title light white">Pages Activity</div>
 		<div class="modal--text content white">Tracking how many page results does the user view. This gives better insight into if the user can search effectively on stackoverflow using tags</div>
+		<div class="modal--event title light white">Tag Activity</div>
+		<div class="modal--text content white">Tracking how frequently the user uses tags in stackoverflow, and in what context</div>
 	</div>
 	<div class="main-wrapper">
 		<div class="main-wrapper--title">
@@ -30,6 +32,7 @@
 			<i class="fa fa-info-circle icon" aria-hidden="true" id="info"></i>
 			<span class="main-wrapper--title-last-login content" id="activity">Last logged in at: 12 August 2017</span>
 		</div>
+		<a class="main-wrapper--body--logout title light" href="https://stackoverflow.com/questions/tagged/java?filter=all&sort=linked" target="_blank">Stackoverflow</a>
 		<div class="main-wrapper--body">
 			<div class="main-wrapper--body--activity" id="activity-hook">
 					<div class="main-wrapper--body--activity--title title light">
@@ -55,6 +58,13 @@
 				<div class="main-wrapper--body--activity" id="page-hook">
 						<div class="main-wrapper--body--activity--title title light">
 							Page Activity
+						</div>
+				</div>
+		</div>
+		<div class="main-wrapper--body">
+				<div class="main-wrapper--body--activity" id="tag-hook">
+						<div class="main-wrapper--body--activity--title title light">
+							Tag Activity
 						</div>
 				</div>
 		</div>
