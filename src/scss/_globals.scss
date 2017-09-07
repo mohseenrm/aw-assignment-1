@@ -11,6 +11,8 @@ $new-black: #0D1130 !global;
 $dull-blue: #011825 !global;
 $side-nav-color: #051B2B !global;
 
+$orange: #FF5A09 !global;
+
 /* classes */
 .title{
 	font-family: $title-font;
@@ -46,4 +48,8 @@ $side-nav-color: #051B2B !global;
 
 .white{
 	color: $off-white;
+}
+
+.orange{
+	color: $orange;
 }

@@ -67,6 +67,7 @@ var createActivityElement = function(activity){
 			'class': 'main-wrapper--body--activity--item content light'
 		}
 	);
+
 	var time = convertToReadableTime(activity.timeStamp);
 	$element.html(time);
 	$hook.append($element);
@@ -81,12 +82,24 @@ var renderLoginActivity = function(){
 /* Render Bounties Data */
 var createTabElement = function(activity){
 	var $element = $(
-		'<div>',
+		'<a>',
 		{
-			'class': 'main-wrapper--body--activity--item content light'
+			'class': 'main-wrapper--body--activity--item content light alt'
 		}
 	);
+	
 	var time = convertToReadableTime(activity.timeStamp);
+
+	$element.attr(
+		'href',
+		activity.url
+	);
+
+	$element.attr(
+		'target',
+		'_blank'
+	);
+
 	$element.html(time);
 	$tabHook.append($element);
 }
@@ -97,14 +110,26 @@ var renderTabActivity = function(){
 	}
 }
 /* Render Questions Data */
-var createQuestionElement = function(activity){
+var createQuestionElement = function(question){
 	var $element = $(
-		'<div>',
+		'<a>',
 		{
-			'class': 'main-wrapper--body--activity--item content light'
+			'class': 'main-wrapper--body--activity--item content light alt'
 		}
 	);
-	var time = convertToReadableTime(activity.timeStamp);
+
+	var time = convertToReadableTime(question.timeStamp);
+
+	$element.attr(
+		'href',
+		question.url
+	);
+
+	$element.attr(
+		'target',
+		'_blank'
+	);
+
 	$element.html(time);
 	$questionHook.append($element);
 }
@@ -115,14 +140,25 @@ var renderQuestionActivity = function(){
 	}
 }
 /* Render Page Data */
-var createPageElement = function(activity){
+var createPageElement = function(page){
 	var $element = $(
-		'<div>',
+		'<a>',
 		{
-			'class': 'main-wrapper--body--activity--item content light'
+			'class': 'main-wrapper--body--activity--item content light alt'
 		}
 	);
-	var time = convertToReadableTime(activity.timeStamp);
+
+	var time = convertToReadableTime(page.timeStamp);
+
+	$element.attr(
+		'href',
+		page.url
+	);
+
+	$element.attr(
+		'target',
+		'_blank'
+	);
 	$element.html(time);
 	$pageHook.append($element);
 }
@@ -133,14 +169,26 @@ var renderPageActivity = function(){
 	}
 }
 /* Render Tag Data */
-var createTagElement = function(activity){
+var createTagElement = function(tag){
 	var $element = $(
-		'<div>',
+		'<a>',
 		{
-			'class': 'main-wrapper--body--activity--item content light'
+			'class': 'main-wrapper--body--activity--item content light alt'
 		}
 	);
-	var time = convertToReadableTime(activity.timeStamp);
+
+	var time = convertToReadableTime(tag.timeStamp);
+
+	$element.attr(
+		'href',
+		tag.url
+	);
+
+	$element.attr(
+		'target',
+		'_blank'
+	);
+
 	$element.html(time);
 	$tagHook.append($element);
 }

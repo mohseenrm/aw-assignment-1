@@ -90,9 +90,15 @@
 				border-bottom: 0;
 
 				max-width: 100vw;
+				transition: all 0.2s ease-in-out;
 
-				// margin-top: 0.5vh;
-				// margin-top: 0.3vh;
+				&.alt{
+					&:hover{
+						transition: all 0.2s ease-in-out;
+						color: $orange;
+					}
+				}
+
 				&:last-child{
 					border-bottom: 4px solid $new-black;
 				}
