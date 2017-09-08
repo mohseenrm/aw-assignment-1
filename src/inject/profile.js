@@ -217,6 +217,7 @@ var render = function(){
 	renderTabActivity();
 	renderQuestionActivity();
 	renderPageActivity();
+	renderTagActivity();
 }
 
 var isPage = function(event){
