@@ -3,13 +3,14 @@ console.log('loaded profile js: ', chrome);
 var $activity = $('#activity');
 var $close = $('#close');
 var $hook = $('#activity-hook');
-var $pageHook = $('#page-hook');
-var $questionHook = $('#question-hook');
-var $tabHook = $('#tab-hook');
-var $tagHook = $('#tag-hook');
 var $info = $('#info');
 var $logout = $('#logout');
 var $modal = $('.modal');
+var $pageHook = $('#page-hook');
+var $questionHook = $('#question-hook');
+var $stats = $('#stats');
+var $tabHook = $('#tab-hook');
+var $tagHook = $('#tag-hook');
 var $username = $('#username');
 
 var session = {
@@ -305,6 +306,17 @@ $logout.click(function(e){
 	chrome.runtime.sendMessage(
 		{
 			logout: true
+		}
+	);
+});
+
+/* Hooking up stats action */
+$stats.click(function(e){
+	e.preventDefault();
+
+	chrome.runtime.sendMessage(
+		{
+			stats: true
 		}
 	);
 });

@@ -16,6 +16,10 @@ chrome.extension.onMessage.addListener(
       chrome.tabs.update({
         url: chrome.extension.getURL("index.html")
       });
+    } else if ( request.stats ){
+      chrome.tabs.update({
+        url: chrome.extension.getURL("stats.html")
+      });
     }
 
   	chrome.pageAction.show(sender.tab.id);
