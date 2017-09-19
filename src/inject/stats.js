@@ -1,7 +1,11 @@
+/* Globals */
 var session = {};
 
-chrome.storage.local.get('username', function(user) {
-	/* Retreive username */
+var $chart = $('#chart');
+var $username = $('#user-title');
+
+/* Retreive username */
+chrome.storage.local.get('username', function(user) {	
 	console.log('Got user: ', user);
 	session.username = user.username;
 	retrieveStats();
@@ -17,10 +21,6 @@ var retrieveStats = function(){
 		success: function( result ){
 			console.log( 'get stats [client] result: ', result );
 			if (result.getStats){
-				// session.activity = result.events[0].activity;
-				// session.events = result.events[0].events;
-				// filter();
-				// render();
 				session.stats = result.stats;
 				render();
 				console.log('Session: ', session);
@@ -34,41 +34,8 @@ var retrieveStats = function(){
 	} );
 }
 var render = function(){
-	var $chart = $("#chart");
-
-	var userDataRender =  getUserStats();
-	var averageGlobalUserStats = getAverageGlobalStats();
-	// var averageGlobalUserStats = [2, 2, 2, 2, 2];
-
-	console.log('User data: ', userDataRender);
-	console.log('avg data: ', averageGlobalUserStats);
-	
-	var chartData = {
-		labels: [
-			'Bounties', 
-			'Pages', 
-			'Questions', 
-			'Tags',
-			'Up Votes'
-		],
-		datasets: [
-			{
-				backgroundColor: 'rgba(200,0,0,0.2)',
-				data: userDataRender,
-				label: session.username
-			},
-			{
-				backgroundColor: 'rgba(0,0,200,0.2)',
-				data: averageGlobalUserStats,
-				label: 'Average Data (all users)'
-			}
-		]
-	};
-	
-	var radarChart = new Chart($chart, {
-		type: 'radar',
-		data: chartData
-	});
+	renderUsername();
+	renderChart();
 };
 
 var getAverageGlobalStats = function(){
@@ -95,4 +62,68 @@ var getUserStats = function(){
 		];
 	}
 	return [0, 0, 0, 0, 0];
-}
+};
+
+var renderUsername = function(){
+	$username.html(`${session.username} statistics`);
+};
+
+var renderChart = function(){
+	var userDataRender =  getUserStats();
+	var averageGlobalUserStats = getAverageGlobalStats();
+	// var averageGlobalUserStats = [2, 2, 2, 2, 2];
+
+	console.log('User data: ', userDataRender);
+	console.log('avg data: ', averageGlobalUserStats);
+	
+	var chartData = {
+		labels: [
+			'Bounties', 
+			'Pages', 
+			'Questions', 
+			'Tags',
+			'Up Votes'
+		],
+		datasets: [
+			{
+				backgroundColor: [
+					'rgba(151,249,190,0.5)'
+				],
+				borderColor: [
+					'rgba(255,255,255,0.5)'
+				],
+				hoverBackgroundColor: 'rgba(151,249,190,1)',
+				data: userDataRender,
+				label: session.username
+			},
+			{
+				backgroundColor: [
+					'rgba(252,147,65,0.5)'
+				],
+				
+				borderColor: [
+					'rgba(255,255,255,0.5)'
+				],
+				hoverBackgroundColor: 'rgba(151,249,190,1)',
+				data: averageGlobalUserStats,
+				label: 'Average Data (all users)'
+			}
+		]
+	};
+
+	var options = {
+		legend: {
+			labels: {
+				fontColor: 'black',
+				defaultFontFanily: 'Merriweather',
+				defaultFontSize: 100
+			}
+		}
+	};
+	
+	var radarChart = new Chart($chart, {
+		type: 'radar',
+		data: chartData,
+		options,
+	});
+};

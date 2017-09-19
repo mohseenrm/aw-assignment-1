@@ -91,4 +91,45 @@ body {
 a {
   text-decoration: none; }
 
+.main-wrapper {
+  display: flex;
+  max-width: 100%;
+  height: auto;
+  flex-direction: column;
+  padding: 2.2vw;
+  flex-wrap: nowrap;
+  align-items: center;
+  overflow-x: hidden; }
+  .main-wrapper--chart {
+    height: 65vh;
+    margin-top: 1.5vh; }
+  .main-wrapper--title {
+    /* &-last-login{
+    	font-size: 1.5rem;
+    	width: auto;
+    	background: $off-white;
+    	color: $new-black;
+    	padding: 1vw;
+    	border: 4px solid $new-black;
+    } */ }
+    .main-wrapper--title-text {
+      display: flex;
+      width: 100%;
+      background: #0D1130;
+      color: #ecf0f1;
+      padding: 1.2vh 0 1.2vh 0;
+      font-size: 5.5rem;
+      text-align: center;
+      border-radius: 5px;
+      flex-grow: 1;
+      align-items: center;
+      justify-content: center;
+      font-weight: 100; }
+
+body {
+  /* base content styling */
+  font-family: "Merriweather", serif;
+  font-size: 1.1rem;
+  background: #ffffff; }
+
 /*# sourceMappingURL=stats.css.map */
