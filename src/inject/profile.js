@@ -21,7 +21,8 @@ var cssClasses = [
   'question-hyperlink',
 	'page-numbers',
 	'bounties-tab',
-	'post-tag'
+	'post-tag',
+	'vote-up-off'
 ];
 
 chrome.storage.local.get('username', function(user) {
