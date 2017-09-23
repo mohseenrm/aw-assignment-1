@@ -71,7 +71,6 @@ var renderUsername = function(){
 var renderChart = function(){
 	var userDataRender =  getUserStats();
 	var averageGlobalUserStats = getAverageGlobalStats();
-	// var averageGlobalUserStats = [2, 2, 2, 2, 2];
 
 	console.log('User data: ', userDataRender);
 	console.log('avg data: ', averageGlobalUserStats);
