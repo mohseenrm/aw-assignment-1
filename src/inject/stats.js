@@ -1,9 +1,44 @@
 /* Globals */
 var session = {};
 
+var insights = {
+	bounties: [
+		'Bounties are a great opportunity to learn a new language or technology, try completing a few bounties to improve you learning on stackoverflow',
+		'Awesome! keep knocking those bounties out',
+		'You\'re a bounty hunter!'
+	],
+	pages: [
+		'Visit more page results to find similar problems you\'re facing',
+		'Awesome! keep going',
+		'You\'re a pro!'
+	],
+	questions: [
+		'Visiting more relevant questions can help point to better solution',
+		'Awesome! keep going!',
+		'Knowledge seeker! (answer a few questions if you know enough about the problem)'
+	],
+	tags: [
+		'Try using relevant tags to view relevant topics and questions',
+		'Awesome! keep going',
+		'#TagPro'
+	],
+	votes: [
+		'Up vote accurate solutions, it helps the community in the long run towards better solutions',
+		'Awesome! keep going',
+		'#MakeStackOverflowGreatAgain'
+	]
+};
+
 var $chart = $('#chart');
 var $username = $('#user-title');
-
+/* Row elements */
+var table = {
+	bounties: $('#row-bounties'),
+	pages: $('#row-pages'),
+	questions: $('#row-questions'),
+	tags: $('#row-tags'),
+	votes: $('#row-votes')
+}
 /* Retreive username */
 chrome.storage.local.get('username', function(user) {	
 	console.log('Got user: ', user);
@@ -36,16 +71,24 @@ var retrieveStats = function(){
 var render = function(){
 	renderUsername();
 	renderChart();
+	renderTable();
 };
 
 var getAverageGlobalStats = function(){
 	if(session.stats.global){
+		session.stats.average = {
+			bounties: session.stats.global.bounties / session.stats.global.totalUsers || 0,
+			pages: session.stats.global.pages / session.stats.global.totalUsers || 0,
+			questions: session.stats.global.questions / session.stats.global.totalUsers || 0,
+			tags: session.stats.global.tags / session.stats.global.totalUsers || 0,
+			votes: session.stats.global.votes / session.stats.global.totalUsers || 0
+		};
 		return [
-			session.stats.global.bounties / session.stats.global.totalUsers || 0,
-			session.stats.global.pages / session.stats.global.totalUsers || 0,
-			session.stats.global.questions / session.stats.global.totalUsers || 0,
-			session.stats.global.tags / session.stats.global.totalUsers || 0,
-			session.stats.global.votes / session.stats.global.totalUsers || 0,
+			session.stats.average.bounties,
+			session.stats.average.pages,
+			session.stats.average.questions,
+			session.stats.average.tags,
+			session.stats.average.votes,
 		];
 	}
 	return [0, 0, 0, 0, 0];
@@ -126,3 +169,18 @@ var renderChart = function(){
 		options,
 	});
 };
+
+var renderRow = function(row){
+	var averageStat = session.stats.average[row];
+	var userStat = session.stats.user[row];
+	var element = table[row];
+
+	if (userStat > averageStat) { element.html(insights[row][2]); }
+	else if (userStat < averageStat) { element.html(insights[row][0]); }
+	else { element.html(insights[row][1]); }
+};
+
+var renderTable = function(){
+	var rows = Object.keys(table);
+	rows.map(renderRow);
+}

@@ -59,7 +59,7 @@
 
 .table-fill {
   background: white;
-  border-radius:3px;
+  border-radius:4px;
   border-collapse: collapse;
   height: 320px;
   margin: auto;
@@ -71,7 +71,7 @@
 }
  
 th {
-  color:#D5DDE5;;
+  color: $off-white;;
 	// background:#1b1e24;
 	background: $new-black;
   border-bottom: 4px solid #9ea7af;
@@ -95,7 +95,7 @@ th:last-child {
   
 tr {
   border-top: 1px solid #C1C3D1;
-  border-bottom-: 1px solid #C1C3D1;
+  border-bottom: 1px solid #C1C3D1;
   color:#666B85;
   font-size:16px;
   font-weight:normal;
@@ -141,6 +141,8 @@ td {
   font-size:18px;
   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #C1C3D1;
+
+  line-height: 3.5vh;
 }
 
 td:last-child {
