@@ -3,27 +3,27 @@ var session = {};
 
 var insights = {
 	bounties: [
-		'Bounties are a great opportunity to learn a new language or technology, try completing a few bounties to improve you learning on stackoverflow',
+		'Bounties are a great opportunity to learn a new language or technology, try completing a few bounties to improve you learning on stackoverflow<a class="insight-button" href="#" target="_blank">Link</a>',
 		'Awesome! keep knocking those bounties out',
 		'You\'re a bounty hunter!'
 	],
 	pages: [
-		'Visit more page results to find similar problems you\'re facing',
+		'Visit more page results to find similar problems you\'re facing<a class="insight-button" href="#" target="_blank">Link</a>',
 		'Awesome! keep going',
 		'You\'re a pro!'
 	],
 	questions: [
-		'Visiting more relevant questions can help point to better solution',
+		'Visiting more relevant questions can help point to better solution<a class="insight-button" href="#" target="_blank">Link</a>',
 		'Awesome! keep going!',
 		'Knowledge seeker! (answer a few questions if you know enough about the problem)'
 	],
 	tags: [
-		'Try using relevant tags to view relevant topics and questions',
+		'Try using relevant tags to view relevant topics and questions<a class="insight-button" href="#" target="_blank">Link</a>',
 		'Awesome! keep going',
 		'#TagPro'
 	],
 	votes: [
-		'Up vote accurate solutions, it helps the community in the long run towards better solutions',
+		'Up vote accurate solutions, it helps the community in the long run towards better solutions<a class="insight-button" href="#" target="_blank">Link</a>',
 		'Awesome! keep going',
 		'#MakeStackOverflowGreatAgain'
 	]
@@ -128,25 +128,14 @@ var renderChart = function(){
 		],
 		datasets: [
 			{
-				backgroundColor: [
-					'rgba(151,249,190,0.5)'
-				],
-				borderColor: [
-					'rgba(255,255,255,0.5)'
-				],
-				hoverBackgroundColor: 'rgba(151,249,190,1)',
+				backgroundColor:'rgba(151,249,190,0.8)',
+				borderColor:'rgba(151,249,190,1)',
 				data: userDataRender,
 				label: session.username
 			},
 			{
-				backgroundColor: [
-					'rgba(252,147,65,0.5)'
-				],
-				
-				borderColor: [
-					'rgba(255,255,255,0.5)'
-				],
-				hoverBackgroundColor: 'rgba(151,249,190,1)',
+				backgroundColor: 'rgba(252,147,65,0.8)',
+				borderColor: 'rgba(252,147,65,1)',
 				data: averageGlobalUserStats,
 				label: 'Average Data (all users)'
 			}
@@ -154,12 +143,32 @@ var renderChart = function(){
 	};
 
 	var options = {
+		maintainAspectRatio: true,
+		spanGaps: false,
+		elements: {
+			line: {
+				tension: 0.25
+			}
+		},
+		plugins:{
+			filler: {
+				propagate: true
+			}
+		},
 		legend: {
 			labels: {
 				fontColor: 'black',
 				defaultFontFanily: 'Merriweather',
 				defaultFontSize: 100
 			}
+		},
+		tooltips: {
+			mode: 'point',
+			intersect: true
+		},
+		hover: {
+			mode: 'point',
+			intersect: true
 		}
 	};
 	
@@ -175,8 +184,13 @@ var renderRow = function(row){
 	var userStat = session.stats.user[row];
 	var element = table[row];
 
-	if (userStat > averageStat) { element.html(insights[row][2]); }
-	else if (userStat < averageStat) { element.html(insights[row][0]); }
+	if (userStat > averageStat) { 
+		element.html(insights[row][2]);
+	 }
+	else if (userStat < averageStat) {
+		session.su
+		element.html(insights[row][0]);
+	}
 	else { element.html(insights[row][1]); }
 };
 

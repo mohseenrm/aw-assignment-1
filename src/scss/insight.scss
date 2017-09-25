@@ -1,0 +1,27 @@
+.insight{
+	&-button{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: 5vw;
+		padding: 2vh;
+		background: $new-black;
+		color: $off-white;
+		border: 3px solid $new-black;
+
+		margin-left: 1vw;
+
+		&:hover{
+			background: $off-white;
+			color: $new-black;
+			font-weight: 300;
+		}
+	}
+}
+
+.flex{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

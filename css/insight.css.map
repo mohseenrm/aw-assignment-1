@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACC,eAAQ;EACP,OAAO,EAAE,IAAI;EACb,KAAK,EAAE,GAAG;EACV,OAAO,EAAE,GAAG",
+"sources": ["../src/scss/insight.scss"],
+"names": [],
+"file": "insight.css"
+}
