@@ -172,3 +172,29 @@ td.text-center {
 td.text-right {
   text-align: right;
 }
+
+.button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 9vh;
+
+  background: $new-black;
+  color: $off-white;
+
+  border: 4px solid $new-black;
+
+  margin-top: 2%;
+
+  transition: all 0.4s ease-in-out;
+
+  &:hover{
+    background: $off-white;
+    color: $new-black;
+    font-weight: 200;
+
+    transition: all 0.4s ease-in-out;
+  }
+}

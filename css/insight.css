@@ -5,7 +5,7 @@ Error: Undefined variable: "$new-black".
 4: 		align-items: center;
 5: 		justify-content: center;
 6: 
-7: 		width: 5vw;
+7: 		max-width: 5vw;
 8: 		padding: 2vh;
 9: 		background: $new-black;
 10: 		color: $off-white;
@@ -79,4 +79,4 @@ src/scss/insight.scss:9
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$new-black\".\A         on line 9 of src/scss/insight.scss\A \A 4: 		align-items: center;\A 5: 		justify-content: center;\A 6: \A 7: 		width: 5vw;\A 8: 		padding: 2vh;\A 9: 		background: $new-black;\A 10: 		color: $off-white;\A 11: 		border: 3px solid $new-black;\A 12: \A 13: 		margin-left: 1vw;\A 14: "; }
+  content: "Error: Undefined variable: \"$new-black\".\A         on line 9 of src/scss/insight.scss\A \A 4: 		align-items: center;\A 5: 		justify-content: center;\A 6: \A 7: 		max-width: 5vw;\A 8: 		padding: 2vh;\A 9: 		background: $new-black;\A 10: 		color: $off-white;\A 11: 		border: 3px solid $new-black;\A 12: \A 13: 		margin-left: 1vw;\A 14: "; }
