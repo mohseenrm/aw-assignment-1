@@ -1,4 +1,6 @@
-console.log('loaded profile js: ', chrome);
+var session = {
+	render: {}
+};
 
 var $activity = $('#activity');
 var $close = $('#close');
@@ -13,9 +15,6 @@ var $tabHook = $('#tab-hook');
 var $tagHook = $('#tag-hook');
 var $username = $('#username');
 
-var session = {
-	render: {}
-};
 
 var cssClasses = [
   'question-hyperlink',
