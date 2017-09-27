@@ -59,7 +59,7 @@ var renderLastLogin = function(){
 			].timeStamp
 		));
 	}
-}
+};
 /* Render Activity Data */
 var createActivityElement = function(activity){
 	var $element = $(
@@ -72,14 +72,14 @@ var createActivityElement = function(activity){
 	var time = convertToReadableTime(activity.timeStamp);
 	$element.html(time);
 	$hook.append($element);
-}
+};
 
 var renderLoginActivity = function(){
 	if (session.activity && session.activity.length !== 0){
 		// render each activity
 		session.activity.map(createActivityElement);
 	}
-}
+};
 /* Render Bounties Data */
 var createTabElement = function(activity){
 	var $element = $(
@@ -103,13 +103,14 @@ var createTabElement = function(activity){
 
 	$element.html(time);
 	$tabHook.append($element);
-}
+};
+
 var renderTabActivity = function(){
 	if (session.render.bounties && session.render.bounties !== 0){
 		// render each activity
 		session.render.bounties.map(createTabElement);
 	}
-}
+};
 /* Render Questions Data */
 var createQuestionElement = function(question){
 	var $element = $(
@@ -133,13 +134,14 @@ var createQuestionElement = function(question){
 
 	$element.html(time);
 	$questionHook.append($element);
-}
+};
+
 var renderQuestionActivity = function(){
 	if (session.render.questions && session.render.questions !== 0){
 		// render each activity
 		session.render.questions.map(createQuestionElement);
 	}
-}
+};
 /* Render Page Data */
 var createPageElement = function(page){
 	var $element = $(
@@ -162,13 +164,14 @@ var createPageElement = function(page){
 	);
 	$element.html(time);
 	$pageHook.append($element);
-}
+};
+
 var renderPageActivity = function(){
 	if (session.render.pages && session.render.pages !== 0){
 		// render each activity
 		session.render.pages.map(createPageElement);
 	}
-}
+};
 /* Render Tag Data */
 var createTagElement = function(tag){
 	var $element = $(
@@ -192,13 +195,14 @@ var createTagElement = function(tag){
 
 	$element.html(time);
 	$tagHook.append($element);
-}
+};
+
 var renderTagActivity = function(){
 	if (session.render.tags && session.render.tags !== 0){
 		// render each activity
 		session.render.tags.map(createTagElement);
 	}
-}
+};
 /* Render Failure */
 var renderFail = function(){
 	var $fail = $(
@@ -209,7 +213,7 @@ var renderFail = function(){
 	);
 	$fail.html('Error loading history, please refresh');
 	$hook.append($fail);
-}
+};
 
 /* Main Render */
 var render = function(){
@@ -219,58 +223,75 @@ var render = function(){
 	renderQuestionActivity();
 	renderPageActivity();
 	renderTagActivity();
-}
+};
 
 var isPage = function(event){
 	return event.className.includes('page-numbers');
-}
+};
 
 var filterPages = function(){
 	if(session.events){
 		var pages = session.events.filter(isPage);
 		session.render.pages = pages;
 	}
-}
+};
 
 var isQuestion = function(event){
 	return event.className.includes('question-hyperlink');
-}
+};
 
 var filterQuestions = function(){
 	if(session.events){
 		var questions = session.events.filter(isQuestion);
 		session.render.questions = questions;
 	}
-}
+};
 
 var isBounty = function(event){
 	return event.className.includes('bounties-tab');
-}
+};
 
 var filterBounties = function(){
 	if(session.events){
 		var bounties = session.events.filter(isBounty);
 		session.render.bounties = bounties;
 	}
-}
+};
 
 var isTag = function(event){
 	return event.className.includes('post-tag');
-}
+};
 
 var filterTags = function(){
 	if(session.events){
 		var tags = session.events.filter(isTag);
 		session.render.tags = tags;
 	}
-}
+};
+
+var filterWebsites = function(){
+	if(session.events){
+		session.stats = {};
+		session.events.map(function(event){
+			if(session.stats[event.url]) { session.stats[event.url] += 1; }
+			else { session.stats[event.url] = 1; }
+		});
+		console.log('Session: ', session);
+		/* Hacky way to pass data */
+		chrome.storage.local.set({
+			// 'username': session.username,
+			'linkStats': session.stats
+		});
+	}
+};
 
 var filter = function(){
 	filterBounties();
 	filterPages();
 	filterQuestions();
 	filterTags();
-}
+	filterWebsites();
+};
 
 var retrieveHistory = function(){
 	$.ajax( {
@@ -286,7 +307,6 @@ var retrieveHistory = function(){
 				session.events = result.events[0].events;
 				filter();
 				render();
-				console.log('Session: ', session);
 			} else {
 				renderFail();
 			}
@@ -295,7 +315,7 @@ var retrieveHistory = function(){
 			console.log( 'get history Error: ', error );
 		}
 	} );
-}
+};
 
 setTimeout(retrieveHistory, 100);
 

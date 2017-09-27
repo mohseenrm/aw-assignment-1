@@ -46,6 +46,12 @@ chrome.storage.local.get('username', function(user) {
 	retrieveStats();
 });
 
+chrome.storage.local.get('linkStats', function(stats) {
+	session.linkStats = stats.linkStats;
+	console.log('Got LStats: ', session);
+	renderLinkStats();
+});
+
 var retrieveStats = function(){
 	$.ajax( {
 		type: 'POST',
@@ -197,4 +203,11 @@ var renderRow = function(row){
 var renderTable = function(){
 	var rows = Object.keys(table);
 	rows.map(renderRow);
-}
+};
+
+var renderLinkStats = function(){
+	var labels = Object.keys(session.linkStats);
+	var data = Object.values(session.linkStats);
+	console.log('labels: ', labels);
+	console.log('data: ', data);
+};
