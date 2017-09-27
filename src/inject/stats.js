@@ -30,6 +30,7 @@ var insights = {
 };
 
 var $chart = $('#chart');
+var $linkChart = $('#link-chart');
 var $username = $('#user-title');
 /* Row elements */
 var table = {
@@ -210,4 +211,35 @@ var renderLinkStats = function(){
 	var data = Object.values(session.linkStats);
 	console.log('labels: ', labels);
 	console.log('data: ', data);
+
+	var renderData = {
+		labels,
+		datasets: [{
+			backgroundColor:'rgba(151,249,190,0.8)',
+			borderColor:'rgba(151,249,190,1)',
+			data,
+			label: 'Websites'
+		}]
+	};
+
+	var options = {
+		elements: {
+			rectangle: { borderWidth: 2 }
+		},
+		responsive: true,
+		legend: { position: 'right' },
+		title: {
+			display: true,
+			text: 'Frequency of events per page'
+		}
+	};
+
+	var linkChart = new Chart(
+		$linkChart,
+		{
+			type: 'horizontalBar',
+			data: renderData,
+			options
+		}
+	);
 };
