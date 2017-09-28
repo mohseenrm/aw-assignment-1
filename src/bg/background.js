@@ -14,11 +14,15 @@ chrome.extension.onMessage.addListener(
       });
     } else if ( request.logout ){
       chrome.tabs.update({
-        url: chrome.extension.getURL("index.html")
+        url: chrome.extension.getURL('index.html')
       });
     } else if ( request.stats ){
       chrome.tabs.update({
-        url: chrome.extension.getURL("stats.html")
+        url: chrome.extension.getURL('stats.html')
+      });
+    } else if ( request.profile ){
+      chrome.tabs.update({
+        url: chrome.extension.getURL('profile.html')
       });
     }
 
@@ -27,7 +31,7 @@ chrome.extension.onMessage.addListener(
     chrome.tabs.sendMessage(
       sender.tab.id,
       {
-        greeting: "hello"
+        greeting: 'hello'
       },
       function(response) {
         if (response) { console.log('Already there'); }
@@ -39,6 +43,6 @@ chrome.extension.onMessage.addListener(
 
 chrome.browserAction.onClicked.addListener(function(tab) {
   chrome.tabs.update({
-    url: chrome.extension.getURL("index.html")
+    url: chrome.extension.getURL('index.html')
   });
 });

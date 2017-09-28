@@ -3,27 +3,27 @@ var session = {};
 
 var insights = {
 	bounties: [
-		'Bounties are a great opportunity to learn a new language or technology, try completing a few bounties to improve you learning on stackoverflow<a class="insight-button" href="#" target="_blank">Link</a>',
+		'Bounties are a great opportunity to learn a new language or technology, try completing a few bounties to improve you learning on stackoverflow<a class="insight-button" href="https://stackoverflow.com/help/bounty" target="_blank">Link</a>',
 		'Awesome! keep knocking those bounties out',
 		'You\'re a bounty hunter!'
 	],
 	pages: [
-		'Visit more page results to find similar problems you\'re facing<a class="insight-button" href="#" target="_blank">Link</a>',
+		'Visit more page results to find similar problems you\'re facing<a class="insight-button" href="https://meta.stackexchange.com/questions/16542/how-to-search-unanswered-questions" target="_blank">Link</a>',
 		'Awesome! keep going',
 		'You\'re a pro!'
 	],
 	questions: [
-		'Visiting more relevant questions can help point to better solution<a class="insight-button" href="#" target="_blank">Link</a>',
+		'Visiting more relevant questions can help point to better solution<a class="insight-button" href="https://meta.stackoverflow.com/questions/254592/how-do-active-answerers-find-questions-to-answer" target="_blank">Link</a>',
 		'Awesome! keep going!',
 		'Knowledge seeker! (answer a few questions if you know enough about the problem)'
 	],
 	tags: [
-		'Try using relevant tags to view relevant topics and questions<a class="insight-button" href="#" target="_blank">Link</a>',
+		'Try using relevant tags to view relevant topics and questions<a class="insight-button" href="https://stackoverflow.com/help/tagging" target="_blank">Link</a>',
 		'Awesome! keep going',
 		'#TagPro'
 	],
 	votes: [
-		'Up vote accurate solutions, it helps the community in the long run towards better solutions<a class="insight-button" href="#" target="_blank">Link</a>',
+		'Up vote accurate solutions, it helps the community in the long run towards better solutions<a class="insight-button" href="https://stackoverflow.com/help/privileges/vote-up" target="_blank">Link</a>',
 		'Awesome! keep going',
 		'#MakeStackOverflowGreatAgain'
 	]
@@ -31,6 +31,7 @@ var insights = {
 
 var $chart = $('#chart');
 var $linkChart = $('#link-chart');
+var $profile = $('#profile');
 var $username = $('#user-title');
 /* Row elements */
 var table = {
@@ -135,14 +136,14 @@ var renderChart = function(){
 		],
 		datasets: [
 			{
-				backgroundColor:'rgba(151,249,190,0.8)',
-				borderColor:'rgba(151,249,190,1)',
+				backgroundColor:'rgba(0,51,102,0.8)',
+				borderColor:'rgba(0,51,102,1)',
 				data: userDataRender,
 				label: session.username
 			},
 			{
-				backgroundColor: 'rgba(252,147,65,0.8)',
-				borderColor: 'rgba(252,147,65,1)',
+				backgroundColor: 'rgba(239,128,13,0.8)',
+				borderColor: 'rgba(239,128,13,1)',
 				data: averageGlobalUserStats,
 				label: 'Average Data (all users)'
 			}
@@ -215,8 +216,8 @@ var renderLinkStats = function(){
 	var renderData = {
 		labels,
 		datasets: [{
-			backgroundColor:'rgba(151,249,190,0.8)',
-			borderColor:'rgba(151,249,190,1)',
+			backgroundColor:'rgba(239,128,13,0.8)',
+			borderColor:'rgba(239,128,13,1)',
 			data,
 			label: 'Websites'
 		}]
@@ -243,3 +244,14 @@ var renderLinkStats = function(){
 		}
 	);
 };
+
+/* Hooking up stats action */
+$profile.click(function(e){
+	e.preventDefault();
+
+	chrome.runtime.sendMessage(
+		{
+			profile: true
+		}
+	);
+});
