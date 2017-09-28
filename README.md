@@ -1,4 +1,4 @@
-# Adaptive Web  - Assignment 1
+# Adaptive Web  - Assignment 2
 > Mohseen Mukaddam (1209239729)
 
 ## Instructions to load chrome extension
@@ -14,3 +14,14 @@
 > Sometimes the server is idle and initial request might be slow or display an error on the dashboard. In that case, logout, refresh and login again. (free server)
 
 *For minimal errors use recommended chrome version*
+
+## Load Visualization
+
+#### 1. Once you have logged in, click on statistics button to load visualizations
+#### 2. You can navigate back using the profile button on the statistics page
+
+## Insights
+
+ *I used a radar graph to visualize the user's behaviour v/s average user*.
+ *Based on his/her rating, suggestions are loaded, that can help the user maximize their productivity while on stackoverflow*.
+*I also included a frequency of these events and which pages they originated from, to make the process more transparent for the user*
