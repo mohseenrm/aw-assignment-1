@@ -1,8 +1,8 @@
 {
-  "name": "Assignment 1",
+  "name": "Assignment 2",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Adaptive Web Assignment 1",
+  "description": "Adaptive Web Assignment 2",
   "homepage_url": "https://mohseenrm.github.io/",
   "offline_enabled": true,
   "icons": {
