@@ -82,7 +82,7 @@ var render = function(){
 	renderChart();
 	renderTable();
 };
-
+// test
 var getAverageGlobalStats = function(){
 	if(session.stats.global){
 		session.stats.average = {
