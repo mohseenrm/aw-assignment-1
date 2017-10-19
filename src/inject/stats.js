@@ -76,12 +76,13 @@ var retrieveStats = function(){
 		}
 	} );
 }
+
 var render = function(){
 	renderUsername();
 	renderChart();
 	renderTable();
 };
-
+// test
 var getAverageGlobalStats = function(){
 	if(session.stats.global){
 		session.stats.average = {
