@@ -187,7 +187,7 @@ var renderChart = function(){
 		options,
 	});
 };
-
+// this
 var renderRow = function(row){
 	var averageStat = session.stats.average[row];
 	var userStat = session.stats.user[row];
