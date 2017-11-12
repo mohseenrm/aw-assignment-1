@@ -202,7 +202,7 @@ var renderRow = function(row){
 	}
 	else { element.html(insights[row][1]); }
 };
-// test
+
 var renderTable = function(){
 	var rows = Object.keys(table);
 	rows.map(renderRow);
