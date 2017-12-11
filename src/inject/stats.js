@@ -119,7 +119,7 @@ var getUserStats = function(){
 var renderUsername = function(){
 	$username.html(`${session.username} statistics`);
 };
-
+// test
 var renderChart = function(){
 	var userDataRender =  getUserStats();
 	var averageGlobalUserStats = getAverageGlobalStats();
