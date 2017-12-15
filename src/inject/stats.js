@@ -76,6 +76,7 @@ var retrieveStats = function(){
 		}
 	} );
 }
+
 /* Main Render Function */
 var render = function(){
 	renderUsername();
