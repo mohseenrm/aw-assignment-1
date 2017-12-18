@@ -250,9 +250,5 @@ var renderLinkStats = function(){
 $profile.click(function(e){
 	e.preventDefault();
 
-	chrome.runtime.sendMessage(
-		{
-			profile: true
-		}
-	);
+	chrome.runtime.sendMessage({ profile: true });
 });
