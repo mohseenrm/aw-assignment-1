@@ -75,7 +75,6 @@ var retrieveStats = function(){
 			console.log( 'get stats Error: ', error );
 		}
 	} );
-}
 
 /* Main Render Function */
 var render = function(){
