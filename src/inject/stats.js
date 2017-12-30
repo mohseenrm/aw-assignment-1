@@ -235,7 +235,7 @@ var renderLinkStats = function(){
 			text: 'Frequency of events per page'
 		}
 	};
-// test
+
 	var linkChart = new Chart(
 		$linkChart,
 		{
