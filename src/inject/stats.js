@@ -207,7 +207,7 @@ var renderTable = function(){
 	var rows = Object.keys(table);
 	rows.map(renderRow);
 };
-
+// test
 var renderLinkStats = function(){
 	var labels = Object.keys(session.linkStats);
 	var data = Object.values(session.linkStats);
