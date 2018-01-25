@@ -150,7 +150,7 @@ var renderChart = function(){
 			}
 		]
 	};
-// test
+
 	var options = {
 		maintainAspectRatio: true,
 		spanGaps: false,
