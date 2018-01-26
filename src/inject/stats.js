@@ -115,11 +115,11 @@ var getUserStats = function(){
 	}
 	return [0, 0, 0, 0, 0];
 };
-
+// new
 var renderUsername = function(){
 	$username.html(`${session.username} statistics`);
 };
-// test
+
 var renderChart = function(){
 	var userDataRender =  getUserStats();
 	var averageGlobalUserStats = getAverageGlobalStats();
